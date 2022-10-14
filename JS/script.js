@@ -3,36 +3,36 @@ var questions = [
 
 
     {
-        question: "question",
-        choices: ["a", "b", "c", "d"],
-        answer: "a"
+        question: "String values must be enclosed within _______ when being assigned to variables",
+        choices: ["commas", "curly brackets", "quotes", "parentheses"],
+        answer: "b"
     },
 
     {
-        question: "question 2",
-        choices: ["a", "b", "c", "d"],
-        answer: "a"
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        choices: ["JavaScript", "bash/terminal", "for loops", "console.log"],
+        answer: "d"
     },
 
     {
-        question: "question 3",
-        choices: ["a", "b", "c", "d"],
-        answer: "a"
+        question: "Commonly used data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "c"
     },
 
     {
-        question: "question 4",
-        choices: ["a", "b", "c", "d"],
-        answer: "a"
+        question: "The condition in an if/else statement is enclosed with _______.",
+        choices: ["quotes", "parentheses", "curly brackets", "square brackets"],
+        answer: "b"
     },
     {
-        question: "question 5",
-        choices: ["a", "b", "c", "d"],
-        answer: "a"
+        question: "Arrays in JavaScript can be used to store _________.",
+        choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+        answer: "d"
     },
     {
-        question: "question 6",
-        choices: ["a", "b", "c", "d"],
+        question: "Tacos:",
+        choices: ["yes", "no", "wait...what?", "a"],
         answer: "a"
     },
     {
@@ -82,7 +82,7 @@ function answerQuestion(event) {
 }
 // set starting time
 var timer
-var time = 60
+var time = 200
 function quizTimer() {
     timer = setInterval(function () {
         if (time > 0) {
