@@ -53,8 +53,10 @@ startButton.addEventListener("click", function () {
     quizTimer()
 })
 function displayQuestion() {
-    if (questionIndex === questions.length){
+    if (questionIndex === questions.length) {
         quizArea.style.display = "none"
+        document.querySelector(".finish").style.display="block"
+        document.querySelector(".score").innerText="Score: " + time
         clearInterval(timer)
         return
     }
@@ -65,34 +67,46 @@ function displayQuestion() {
     document.querySelector(".button4").innerText = questions[questionIndex].choices[3]
 }
 
-function answerQuestion(event){
-    var choice=event.target.innerText
-    var correct=questions[questionIndex].answer
-    if (choice === correct){
+function answerQuestion(event) {
+    var choice = event.target.innerText
+    var correct = questions[questionIndex].answer
+    if (choice === correct) {
         questionIndex++
         displayQuestion()
     } else {
         questionIndex++
-        time= time-10
+        time = time - 10
         displayQuestion()
     }
 }
 
 var timer
-var time =60
-function quizTimer(){
-    timer=setInterval(function(){
-        if (time >0){
-            time=time-1
+var time = 60
+function quizTimer() {
+    timer = setInterval(function () {
+        if (time > 0) {
+            time = time - 1
             document.querySelector(".time").innerText = time
         }
-    },1000)
+    }, 1000)
 }
 
 document.querySelector(".button1").addEventListener("click", answerQuestion)
 document.querySelector(".button2").addEventListener("click", answerQuestion)
 document.querySelector(".button3").addEventListener("click", answerQuestion)
 document.querySelector(".button4").addEventListener("click", answerQuestion)
+
+document.querySelector(".submit").addEventListener("click", function() {
+    var initials = document.querySelector(".initials").value 
+    var storage = JSON.parse(localStorage.getItem("score")) || []
+    var score = {
+        initials,time
+    }
+    storage.push(score)
+    localStorage.setItem("score", JSON.stringify(storage))
+    window.location.reload()
+})
+
 // var timerEl = document.querySelector(".timer-count");
 // var startButton = document.querySelector(".start-button");
 //vars for correct and incorrect?
