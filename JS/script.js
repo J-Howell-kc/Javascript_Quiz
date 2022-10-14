@@ -1,4 +1,4 @@
-// gonna need some variables here:
+// gonna need some question variables here:
 var questions = [
 
 
@@ -36,13 +36,13 @@ var questions = [
         answer: "a"
     },
     {
-        question: "question 7",
-        choices: ["a", "b", "c", "d"],
+        question: "Do I have any idea what I'm actually doing?",
+        choices: ["a little.", "not really.", "absolutely not!", "NOOOOOOP."],
         answer: "a"
     }
 ]
 var questionIndex = 0;
-
+// Start the quiz with a button
 var startArea = document.querySelector(".start");
 var startButton = document.querySelector(".startButton");
 var quizArea = document.querySelector(".quiz");
@@ -52,6 +52,7 @@ startButton.addEventListener("click", function () {
     displayQuestion()
     quizTimer()
 })
+// display questions and begin timer
 function displayQuestion() {
     if (questionIndex === questions.length) {
         quizArea.style.display = "none"
@@ -66,7 +67,7 @@ function displayQuestion() {
     document.querySelector(".button3").innerText = questions[questionIndex].choices[2]
     document.querySelector(".button4").innerText = questions[questionIndex].choices[3]
 }
-
+// set timer to deduct incorrect answers
 function answerQuestion(event) {
     var choice = event.target.innerText
     var correct = questions[questionIndex].answer
@@ -79,7 +80,7 @@ function answerQuestion(event) {
         displayQuestion()
     }
 }
-
+// set starting time
 var timer
 var time = 60
 function quizTimer() {
@@ -90,12 +91,13 @@ function quizTimer() {
         }
     }, 1000)
 }
-
+// querySelector answer buttons, add event listeners for clicks on answer buttons
 document.querySelector(".button1").addEventListener("click", answerQuestion)
 document.querySelector(".button2").addEventListener("click", answerQuestion)
 document.querySelector(".button3").addEventListener("click", answerQuestion)
 document.querySelector(".button4").addEventListener("click", answerQuestion)
 
+//add initials for score, store initials and score
 document.querySelector(".submit").addEventListener("click", function() {
     var initials = document.querySelector(".initials").value 
     var storage = JSON.parse(localStorage.getItem("score")) || []
@@ -107,36 +109,3 @@ document.querySelector(".submit").addEventListener("click", function() {
     window.location.reload()
 })
 
-// var timerEl = document.querySelector(".timer-count");
-// var startButton = document.querySelector(".start-button");
-//vars for correct and incorrect?
-
-// init function when page loads
-
-//startQuiz function called when start button is clicked
-
-//setTimer function starts and stops the timer and calls score results when timer=0
-
-//functions used by init for high score storage and display
-
-// tests if button clicked is correct answer
-
-//var [questionIndex]
-
-// counts number of correct answers for score
-
-//event listener for clicks on buttons
-
-//event listener 
-
-//test if button clicked is correct answer, add point if correct, add zero if not
-
-//event listener for start button to call startQuiz function
-// document.addEventListener("click", function(event) {
-    // If the count is zero, exit function
- //   if (timerCount === 0) {
-  //    return;
-  //  }
-
-  //call init() so it runs when page is opened
-//init(); 

@@ -1,7 +1,8 @@
-
+/* Hide buttons during quiz */
 .quiz{
     display:none
 }
 .finish{
     display:none
 }
+
